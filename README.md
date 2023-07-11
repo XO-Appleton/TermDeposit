@@ -51,6 +51,8 @@ Since the dataset is highly imbalanced, accuracy would not be a good metric. So 
 ## Final Model
 
 The final model chosen was the tuned XGBClassifier(n_estimators=50, max_depths=6,random_state=22). It was trained on the resampled balanced training set and achieved  94% training accuracy and 92% testing accuracy and an f1-score of 0.53 for class 1 on the test set. Its performance was found to be most optimized with a probability threshold of 0.6.
+
+Final model result:
 ![final model result](https://github.com/XO-Appleton/TermDeposit/assets/41369365/afb01942-0ead-4eb8-9ba4-1d0a68329613)
 
 ## Summary
@@ -58,8 +60,13 @@ The final model chosen was the tuned XGBClassifier(n_estimators=50, max_depths=6
 The main challenge of the project is the imbalanced dataset which was mitigated by a mix of upsampling, downsampling, and choosing F1 score over accuracy for evaluation.
 
 After converting the categorical features to numerical ones, there were 24 features in total, using backward feature selection, we were able to narrow it down to the top 5 most important features:
+
+Converted Feature Importances:
 ![converted_feature importance](https://github.com/XO-Appleton/TermDeposit/assets/41369365/ca09b548-3797-44a8-989e-1eb8fd4a8a68)
+
 Using fewer features, the accuracy dropped by 2% and the f1 score dropped from 0.53 to 0.52, but it significantly simplified the model.
+
+Five-feature model result:
 ![five feature model result](https://github.com/XO-Appleton/TermDeposit/assets/41369365/2cea179f-6fa3-4491-9e8f-948c34d6e590)
 
 Using the model to predict the original dataset, we found 1670 false positives, that is, clients not subscribed to a term deposit but the model predicte
